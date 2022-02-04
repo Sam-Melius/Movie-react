@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './App.css';
 import MovieForm from './MovieForm';
+import MovieList from './MovieList';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           setColorForm={setColorForm}
           addMovie={addMovie} />
       </div>
+      <MovieList movies={movies} />
     </div>
   );
 }
