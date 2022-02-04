@@ -1,8 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-// eslint-disable-next-line no-unused-vars
-import Movie from './Movie';
+
 import MovieForm from './MovieForm';
 import MovieList from './MovieList';
 
