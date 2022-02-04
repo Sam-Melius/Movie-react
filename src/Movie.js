@@ -4,9 +4,11 @@ export default function Movie({
   title,
   director,
   year,
-  color
+  color,
+  deleteMovie
 }) {
-  return <div className='movie' style={{ backgroundColor: color }}>
+  return <div className='movie' style={{ backgroundColor: color }}
+    onClick={() => deleteMovie && deleteMovie(title)}>
     <h2>{title}</h2>
     <p>{director}</p>
     <p>{year}</p>
