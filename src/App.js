@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-import Movie from './Movie';
+
 import MovieForm from './MovieForm';
 import MovieList from './MovieList';
 
