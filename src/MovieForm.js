@@ -21,9 +21,36 @@ export default function MovieForm({
       color: colorForm
     };
     addMovie(movie);
-    
+    setTitleForm('');
+    setDirectorForm('');
+    setYearForm('');
+    setColorForm('');  
   }
 
-  return <div></div>;
+  return <form onSubmit={handleSubmit}>
+    <label>
+          Title
+      <input value={titleForm} onChange={e => setTitleForm(e.target.value)}/>
+    </label>
+    <label>
+          Director
+      <input value={directorForm} onChange={e => setDirectorForm(e.target.value)}/>
+    </label>
+    <label>
+          Year
+      <input value={yearForm} onChange={e => setYearForm(e.target.value)}/>
+    </label>
+    <label>
+        Color
+      <select value={colorForm} onChange={e => setColorForm(e.target.value)}>
+        <option value='green'>Green</option>
+        <option value='blue'>Blue</option>
+        <option value='red'>Red</option>
+        <option value='purple'>Purple</option>
+        <option value='orange'>Orange</option>
+      </select>
+    </label>
+    <button>Add Movie</button>
+  </form>;
 }
 
