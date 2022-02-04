@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Movie from './Movie';
 import MovieForm from './MovieForm';
@@ -13,6 +13,7 @@ function App() {
   const [yearForm, setYearForm] = useState('');
   const [colorForm, setColorForm] = useState('');
   const [filteredMovies, setFilteredMovies] = useState(null);
+  const [newFilter, setNewFilter] = useState('');
 
   function addMovie(newMovie) {
     const updateMovies = [...movies, newMovie];
@@ -22,13 +23,15 @@ function App() {
   function deleteMovie(title) {
     const index = movies.findIndex(movie => movie.title === title);
     movies.splice(index, 1);
+    setNewFilter('');
+
     setMovies([...movies]);
   }
 
-  function handleFilter(query) {
-    const filteredMovies = movies.filter(movie => movie.title.includes(query));
+  useEffect(() => {
+    const filteredMovies = movies.filter(movie => movie.title.includes(newFilter));
     setFilteredMovies(filteredMovies);
-  }
+  }, [newFilter, movies]);
 
   return (
     <div className="App">
@@ -47,7 +50,7 @@ function App() {
       </div>
       <div>
         Filter Movies
-        <input onChange={(e) => handleFilter(e.target.value)} />
+        <input value={newFilter} onChange={(e) => setNewFilter(e.target.value)} />
       </div>
       <MovieList movies={filteredMovies ? filteredMovies : movies}
         deleteMovie={deleteMovie} />
