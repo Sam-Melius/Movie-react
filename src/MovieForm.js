@@ -27,7 +27,7 @@ export default function MovieForm({
     setColorForm('');  
   }
 
-  return <form onSubmit={handleSubmit}>
+  return <form className='movie-form' onSubmit={handleSubmit}>
     <label>
           Title
       <input value={titleForm} onChange={e => setTitleForm(e.target.value)}/>

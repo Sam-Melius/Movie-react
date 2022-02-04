@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <div>
+      <div className='main-form'>
         <MovieForm
           titleForm={titleForm}
           setTitleForm={setTitleForm}
@@ -51,9 +51,12 @@ function App() {
       <div>
         Filter Movies
         <input value={newFilter} onChange={(e) => setNewFilter(e.target.value)} />
-      </div> List of Motion Pictures
-      <MovieList movies={filteredMovies ? filteredMovies : movies}
-        deleteMovie={deleteMovie} />
+      </div> 
+      <div className='main-list'>
+        <h1>List of Motion Pictures</h1>
+        <MovieList movies={filteredMovies ? filteredMovies : movies}
+          deleteMovie={deleteMovie} />
+      </div> 
     </div>
   );
 }
