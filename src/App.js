@@ -51,7 +51,7 @@ function App() {
       <div>
         Filter Movies
         <input value={newFilter} onChange={(e) => setNewFilter(e.target.value)} />
-      </div>
+      </div> List of Motion Pictures
       <MovieList movies={filteredMovies ? filteredMovies : movies}
         deleteMovie={deleteMovie} />
     </div>
