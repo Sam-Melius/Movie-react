@@ -12,6 +12,7 @@ function App() {
   const [directorForm, setDirectorForm] = useState('');
   const [yearForm, setYearForm] = useState('');
   const [colorForm, setColorForm] = useState('');
+  const [filteredMovies, setFilteredMovies] = useState(null);
 
   function addMovie(newMovie) {
     const updateMovies = [...movies, newMovie];
@@ -22,6 +23,11 @@ function App() {
     const index = movies.findIndex(movie => movie.title === title);
     movies.splice(index, 1);
     setMovies([...movies]);
+  }
+
+  function handleFilter(query) {
+    const filteredMovies = movies.filter(movie => movie.title.includes(query));
+    setFilteredMovies(filteredMovies);
   }
 
   return (
@@ -39,7 +45,11 @@ function App() {
           addMovie={addMovie} />
         
       </div>
-      <MovieList movies={movies}
+      <div>
+        Filter Movies
+        <input onChange={(e) => handleFilter(e.target.value)} />
+      </div>
+      <MovieList movies={filteredMovies ? filteredMovies : movies}
         deleteMovie={deleteMovie} />
     </div>
   );
