@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
+import Movie from './Movie';
 
 import MovieForm from './MovieForm';
 import MovieList from './MovieList';
@@ -46,6 +47,13 @@ function App() {
           colorForm={colorForm}
           setColorForm={setColorForm}
           addMovie={addMovie} />
+        { <Movie
+          title={titleForm}
+          director={directorForm}
+          year={yearForm}
+          color={colorForm}
+        />
+        }
         
       </div>
       <div>
